@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Puff Zone — Fresh. Crispy. Delicious.</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --cream: #faf7f0;
+      --dark: #1d1b18;
+      --brown: #8b5e3c;
+      --light-brown: #ead9c5;
+      --white: #ffffff;
+      --muted: #77716a;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    /* NAVBAR */
+    nav {
+      width: 100%;
+      padding: 22px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-family: "Playfair Display", serif;
+      font-size: 27px;
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+
+    .nav-btn {
+      text-decoration: none;
+      color: var(--dark);
+      border: 1px solid #cfc6bb;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: .3s;
+    }
+
+    .nav-btn:hover {
+      background: var(--dark);
+      color: white;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 7% 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 650px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--light-brown);
+      color: #68462d;
+      padding: 7px 14px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 25px;
+      letter-spacing: .4px;
+    }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(55px, 8vw, 100px);
+      line-height: .95;
+      letter-spacing: -4px;
+      margin-bottom: 28px;
+    }
+
+    h1 span {
+      color: var(--brown);
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 500px;
+      margin-bottom: 35px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      text-decoration: none;
+      padding: 14px 24px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: .3s;
+    }
+
+    .primary-btn {
+      background: var(--dark);
+      color: white;
+    }
+
+    .primary-btn:hover {
+      transform: translateY(-2px);
+      background: var(--brown);
+    }
+
+    .secondary-btn {
+      border: 1px solid #cfc6bb;
+      color: var(--dark);
+    }
+
+    .secondary-btn:hover {
+      background: white;
+    }
+
+    /* DECORATION */
+    .hero-circle {
+      position: absolute;
+      width: 480px;
+      height: 480px;
+      background: #eee0ce;
+      border-radius: 50%;
+      right: -120px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: -1;
+    }
+
+    .hero-circle::after {
+      content: "🥐";
+      position: absolute;
+      font-size: 190px;
+      left: 120px;
+      top: 120px;
+      filter: drop-shadow(0 15px 15px rgba(0,0,0,.08));
+    }
+
+    /* MENU */
+    .menu-section {
+      padding: 100px 7%;
+      background: white;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .section-heading small {
+      color: var(--brown);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .section-heading h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 48px;
+      margin-top: 8px;
+      letter-spacing: -1.5px;
+    }
+
+    .menu-grid {
+      max-width: 1050px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .menu-card {
+      padding: 28px;
+      border: 1px solid #eee8df;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fffdfa;
+      transition: .3s;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 40px rgba(45, 35, 25, .08);
+    }
+
+    .menu-info h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 23px;
+      margin-bottom: 4px;
+    }
+
+    .menu-info p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .price {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--brown);
+      white-space: nowrap;
+      margin-left: 20px;
+    }
+
+    /* ABOUT */
+    .about {
+      padding: 100px 7%;
+      text-align: center;
+    }
+
+    .about-box {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .about h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 46px;
+      margin-bottom: 20px;
+    }
+
+    .about p {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    /* CTA */
+    .cta {
+      margin: 0 7% 80px;
+      padding: 70px 30px;
+      background: var(--dark);
+      color: white;
+      border-radius: 28px;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 45px;
+      margin-bottom: 12px;
+    }
+
+    .cta p {
+      color: #bcb8b1;
+      margin-bottom: 25px;
+    }
+
+    .order-btn {
+      display: inline-block;
+      background: #e7c9a7;
+      color: #211a14;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-weight: 700;
+      transition: .3s;
+    }
+
+    .order-btn:hover {
+      background: white;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 25px 7%;
+      border-top: 1px solid #e8e1d7;
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 700px) {
+
+      nav {
+        padding: 18px 5%;
+      }
+
+      .hero {
+        padding: 120px 5% 70px;
+        min-height: 85vh;
+      }
+
+      h1 {
+        font-size: 60px;
+        letter-spacing: -3px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .hero-circle {
+        width: 300px;
+        height: 300px;
+        right: -130px;
+        top: 68%;
+      }
+
+      .hero-circle::after {
+        font-size: 110px;
+        left: 85px;
+        top: 85px;
+      }
+
+      .menu-section {
+        padding: 75px 5%;
+      }
+
+      .section-heading h2,
+      .about h2 {
+        font-size: 38px;
+      }
+
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .menu-card {
+        padding: 22px;
+      }
+
+      .cta {
+        margin: 0 5% 60px;
+        padding: 55px 20px;
+      }
+
+      .cta h2 {
+        font-size: 36px;
+      }
+
+      footer {
+        padding: 22px 5%;
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo">Puff Zone.</div>
+    <a href="#menu" class="nav-btn">View Menu</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="hero-content">
+      <span class="tag">FRESH • CRISPY • DELICIOUS</span>
+
+      <h1>
+        The art of<br>
+        <span>perfect puff.</span>
+      </h1>
+
+      <p>
+        Freshly baked puffs made with quality ingredients,
+        crispy layers and delicious fillings. Simple food,
+        done beautifully.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#menu" class="primary-btn">Explore Menu</a>
+
+        <!-- Replace the number with your WhatsApp number -->
+        <a
+          href="https://wa.me/91XXXXXXXXXX"
+          class="secondary-btn"
+          target="_blank">
+          Order on WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-circle"></div>
+
+  </section>
+
+
+  <!-- MENU -->
+  <section class="menu-section" id="menu">
+
+    <div class="section-heading">
+      <small>Our Menu</small>
+      <h2>Made fresh. Served hot.</h2>
+    </div>
+
+    <div class="menu-grid">
+
+      <div class="menu-card">
+        <div class="menu-info">
+          <h3>Masala Puff</h3>
+          <p>Classic spicy masala filling</p>
+        </div>
+        <div class="price">₹40</div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-info">
+          <h3>Masala Cheese Puff</h3>
+          <p>Masala filling with creamy cheese</p>
+        </div>
+        <div class="price">₹60</div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-info">
+          <h3>Chinese Puff</h3>
+          <p>Chinese-style flavorful filling</p>
+        </div>
+        <div class="price">₹50</div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-info">
+          <h3>Chinese Cheese Puff</h3>
+          <p>Chinese filling with melted cheese</p>
+        </div>
+        <div class="price">₹70</div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+  <section class="about">
+
+    <div class="about-box">
+      <h2>Why Puff Zone?</h2>
+
+      <p>
+        We believe a great puff doesn't need to be complicated.
+        Quality ingredients, a crispy golden crust and the right
+        amount of filling — that's our recipe for a perfect bite.
+      </p>
+    </div>
+
+  </section>
+
+
+  <!-- CTA -->
+  <section class="cta">
+
+    <h2>Craving a crispy puff?</h2>
+
+    <p>
+      Your next favourite bite is just one message away.
+    </p>
+
+    <!-- Replace the number with your WhatsApp number -->
+    <a
+      href="https://wa.me/91XXXXXXXXXX"
+      class="order-btn"
+      target="_blank">
+      Order Now →
+    </a>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2026 Puff Zone.</span>
+    <span>Freshness in every bite.</span>
+  </footer>
+
+</body>
+</html>
